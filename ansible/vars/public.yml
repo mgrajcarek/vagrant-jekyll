@@ -1,0 +1,10 @@
+---
+server:
+    install: '1'
+    packages: [git, vim]
+    timezone: Europe/Warsaw
+    locale: en_US.UTF-8
+
+vagrant_local:
+    install: '1'
+    vm: { base_box: trusty64, hostname: blog.jekyll , ip: 192.168.33.50, sharedfolder: ./, useVagrantCloud: '1', syncType: nfs }

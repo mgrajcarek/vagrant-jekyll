@@ -1,0 +1,15 @@
+---
+
+- name: Set the hostname in /etc/hostname
+  shell: echo {{ vagrant_local.vm.hostname }} > /etc/hostname
+  when: vagrant_local.vm.hostname is defined
+
+- name: Set the hostname
+  shell: hostname {{ vagrant_local.vm.hostname }}
+  when: vagrant_local.vm.hostname is defined
+
+- name: Export bash profile LC_ALL
+  lineinfile: dest=~/.profile regexp='LC_ALL=' line='LC_ALL={{server.locale}}'
+
+- name: Export bash profile LANG
+  lineinfile: dest=~/.profile regexp='LANG=' line='LANG={{server.locale}}'

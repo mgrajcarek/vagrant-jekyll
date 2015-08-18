@@ -1,0 +1,11 @@
+---
+- hosts: all
+  sudo: true
+  vars_files:
+    - vars/public.yml
+  roles:
+    - server
+    - vagrant_local
+    - ruby
+    - nodejs
+    - jekyll

@@ -1,0 +1,6 @@
+---
+
+- name: Ensure Jekyll's gem dependencies are installed
+  shell: gem install {{ item.name }} -v {{ item.version }} {{ item.flags }}
+  with_items:
+    - { name: 'jekyll',  version: "{{ jekyll_version }}", flags: '--no-ri --no-rdoc' }
